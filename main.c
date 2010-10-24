@@ -2,18 +2,20 @@
 #include <malloc.h>
 #include "room.h"
 
+struct room * create_area(char *);
+
 void link_areas(struct room *, char, struct room *);
 
 int main(){
-	struct room * start = malloc(sizeof(struct room));
-	struct room * hallway = malloc(sizeof(struct room));
-	struct room * finish = malloc(sizeof(struct room));
+	struct room * start;
+	struct room * hallway;
+	struct room * finish;
 
-	start->name = "Starting area";
+	start = create_area("Starting area");
 
-	hallway->name = "Hallway";
+	hallway = create_area("Hallway");
 
-	finish->name = "Finish area";
+	finish = create_area("Finish area");
 
 	link_areas(start, 'w', hallway);
 	link_areas(hallway, 's', finish);
@@ -30,6 +32,14 @@ int main(){
 	free(finish);
 
 	return 0;
+}
+
+struct room * create_area(char * name){
+	struct room * temp = malloc(sizeof(struct room));
+
+	temp->name = name;
+
+	return temp;
 }
 
 void link_areas(struct room * a, char l, struct room * b){
