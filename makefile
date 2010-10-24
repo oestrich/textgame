@@ -6,7 +6,7 @@ CFLAGS = -Wall
 SOURCES := $(wildcard *.c)
 OBJS := $(patsubst %.c,%.o,$(SOURCES))
 
-game: $(OBJS)
+$(EXEC): $(OBJS)
 	$(CC) -o $(EXEC) $(OBJS)
 
 clean:
