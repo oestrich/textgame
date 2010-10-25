@@ -20,6 +20,11 @@ struct room * create_area(char * name){
 
 	temp->name = name;
 
+	temp->north = NULL;
+	temp->east = NULL;
+	temp->west = NULL;
+	temp->south = NULL;
+
 	return temp;
 }
 
@@ -31,24 +36,42 @@ struct room * create_area(char * name){
  * a->west = b
  * b->east = a
  */
-void link_areas(struct room * a, char l, struct room * b){
+int link_areas(struct room * a, char l, struct room * b){
 	switch(l){
 		case 'n':
+			if(a->north != NULL || b->south != NULL){
+				return -1;
+			}
+
 			a->north = b;
 			b->south = a;
 			break;
 		case 'e':
+			if(a->east != NULL || b->west != NULL){
+				return -1;
+			}
+
 			a->east = b;
 			b->west = a;
 			break;
 		case 'w':
+			if(a->west != NULL || b->east != NULL){
+				return -1;
+			}
+
 			a->west = b;
 			b->east = a;
 			break;
 		case 's':
+			if(a->south != NULL || b->north != NULL){
+				return -1;
+			}
+
 			a->south = b;
 			b->north = a;
 			break;
 	}
+
+	return 1;
 }
 

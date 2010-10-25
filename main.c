@@ -5,15 +5,19 @@
 int main(){
 	struct room * start;
 	struct room * hallway;
+	struct room * deadend;
 	struct room * finish;
 
 	start = create_area("Starting area");
 
 	hallway = create_area("Hallway");
 
+	deadend = create_area("Dead end");
+
 	finish = create_area("Finish area");
 
 	link_areas(start, 'w', hallway);
+	link_areas(hallway, 'n', deadend);
 	link_areas(hallway, 's', finish);
 
 	printf("Welcome to the text game!\n");
