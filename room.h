@@ -11,7 +11,10 @@ struct room{
 };
 
 struct room * create_area(char *);
+
 void free_area(struct room **);
+
 void link_areas(struct room *, char, struct room *);
+
 #endif
 
