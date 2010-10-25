@@ -10,5 +10,5 @@ $(EXEC): $(OBJS)
 	$(CC) -o $(EXEC) $(OBJS)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS) 
 	rm -f $(EXEC)
