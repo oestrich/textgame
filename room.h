@@ -16,5 +16,7 @@ void free_area(struct room **);
 
 int link_areas(struct room *, char, struct room *);
 
+void show_map(struct room *);
+
 #endif
 

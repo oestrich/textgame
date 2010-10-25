@@ -26,6 +26,11 @@ int main(){
 	printf("\nYou are currently in %s\n", start->name);
 	printf("To the west is %s\n", start->west->name);
 
+	show_map(start);
+	show_map(hallway);
+	show_map(deadend);
+	show_map(finish);
+
 	// Clear memory
 	free_area(&start);
 

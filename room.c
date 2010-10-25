@@ -75,3 +75,19 @@ int link_areas(struct room * a, char l, struct room * b){
 	return 1;
 }
 
+void show_map(struct room * map){
+	printf("%s:\n", map->name);
+
+	if(map->north != NULL)
+		printf("\tNorth: %s\n", map->north->name);
+
+	if(map->east != NULL)
+		printf("\tEast:  %s\n", map->east->name);
+		
+	if(map->west != NULL)
+		printf("\tWest:  %s\n", map->west->name);
+
+	if(map->south != NULL)
+		printf("\tSouth: %s\n", map->south->name);
+}
+
