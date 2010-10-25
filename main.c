@@ -36,6 +36,8 @@ int main(){
 
 	free_area(&hallway);
 
+	free_area(&deadend);
+
 	free_area(&finish);
 
 	return 0;

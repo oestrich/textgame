@@ -35,6 +35,8 @@ struct room * create_area(char * name){
  * a, 'w', b goes to 
  * a->west = b
  * b->east = a
+ * 
+ * return -1 if link failed
  */
 int link_areas(struct room * a, char l, struct room * b){
 	switch(l){
