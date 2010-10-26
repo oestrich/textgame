@@ -77,6 +77,9 @@ int link_areas(struct room * a, char l, struct room * b){
 	return 1;
 }
 
+/**
+ * Shows the areas that a room is linked to
+ */
 void show_map(struct room * map){
 	printf("%s:\n", map->name);
 
